@@ -1,4 +1,4 @@
-ROM centos:7
+FROM centos:7
 RUN yum install -y java
 RUN yum install -y wget
 # ADD files/apache-tomcat-9.0.21.tar.gz /opt/
