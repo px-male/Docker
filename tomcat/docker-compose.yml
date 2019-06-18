@@ -7,5 +7,5 @@ services:
     ports: 
       - 8081:8080
     volumes:
-      - ./tomcat/share/logs:/share/logs
+      - ./tomcat/share/logs:/opt/apache-tomcat-9.0.21/logs
     
