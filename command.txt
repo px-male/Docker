@@ -1,0 +1,21 @@
+
+Docker Playground
+
+1. mkdir git #for example
+
+2. git init
+
+3. git clone https://github.com/px-male/Docker.git
+
+4. file edit or new file add
+
+5. git add .
+
+6. git commit -m "Message"  * error occur
+
+7. git config user.email XXXXX@XXXXXX
+
+8. git config user.name YYYYYYY
+
+9. git push
+
