@@ -6,21 +6,23 @@ services:
     image: centos:7
     container_name: 'controller'
     restart: always
-    ports:
-      - '2210:22'
+    tty: true
+#    ports:
+#      - '12210:22'
     networks:
       app_net:
-        ipv4_address: 172.17.0.10
+        ipv4_address: 173.17.0.10
 
   server2:
     image: centos:7
     container_name: 'target'
     restart: always
-    ports:
-      - '2210:22'
+    tty: true
+#    ports:
+#      - '12210:22'
     networks:
       app_net:
-        ipv4_address: 172.17.0.20
+        ipv4_address: 173.17.0.20
 
 
 networks:
@@ -29,5 +31,5 @@ networks:
     ipam:
      driver: default
      config:
-       - subnet: 172.17.0.0/16
-         gateway: 172.18.0.1
+       - subnet: 173.17.0.0/16
+         gateway: 173.17.0.1
