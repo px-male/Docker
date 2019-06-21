@@ -1,35 +1,34 @@
-version: '2'
-
+version: '3'
 services:
-
-  server1:
-    image: centos:7
-    container_name: 'controller'
-    restart: always
-    tty: true
-#    ports:
-#      - '12210:22'
+  controller:
+    build: ./controller
+    image: controller
+    container_name: controller
+    privileged: true
     networks:
-      app_net:
-        ipv4_address: 173.17.0.10
+#      - test-network
+      private_net:
+        ipv4_address: 192.168.100.10 
+    command: /sbin/init
 
-  server2:
-    image: centos:7
-    container_name: 'target'
-    restart: always
-    tty: true
-#    ports:
-#      - '12210:22'
+  target:
+    build: ./target
+    image: target
+    container_name: target
+    privileged: true
     networks:
-      app_net:
-        ipv4_address: 173.17.0.20
-
+#      - test-network
+      private_net:
+        ipv4_address: 192.168.100.20 
+    command: /sbin/init
 
 networks:
-  app_net:
-    driver: bridge
-    ipam:
-     driver: default
-     config:
-       - subnet: 173.17.0.0/16
-         gateway: 173.17.0.1
+#    test-network:
+    private_net:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 192.168.100.0/24
+
+#      external: true

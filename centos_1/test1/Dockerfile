@@ -13,6 +13,10 @@ RUN sed -i -e 's/%wheel\tALL=(ALL)\tALL/# %wheel\tALL=(ALL)\tALL/' /etc/sudoers
 RUN visudo -c
 RUN echo "root:password" | chpasswd
 
+RUN mkdir  ~/.ssh && \
+    touch  ~/.ssh/authorized_keys && \
+    chmod 600  ~/.ssh/authorized_keys
+
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
 
