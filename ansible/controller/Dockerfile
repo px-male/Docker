@@ -28,6 +28,15 @@ RUN mkdir /ansible && \
     cd inventory && \
     echo -e "[targets]\n192.168.100.20" > hosts
 
+RUN cd /etc/ansible && \
+    echo -e "[targets]\n192.168.100.20" >> hosts && \
+    mkdir -p /etc/ansible/roles/ping && \
+    mkdir /etc/ansible/roles/ping/tasks
+
+COPY ./etc/ansible/roles/ping/tasks/main.yml /etc/ansible/roles/ping/tasks
+#COPY main.yml /etc/ansible/roles/ping/tasks
+COPY ./etc/ansible/site.yml /etc/ansible
+
     
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
