@@ -1,4 +1,4 @@
-virsion: '3'
+version: '3'
 services:
   python3:
     restart: always
@@ -6,6 +6,6 @@ services:
     container_name: 'python3'
     working_dir: '/root/'
     tty: true
-    volume:
+    volumes:
       - .opt:/root/opt
     
