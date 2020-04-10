@@ -7,9 +7,12 @@ Docker Playground
 
 3. git clone https://github.com/px-male/Docker.git
 
-4. file edit or new file add
+4. cd Dockr/
+
+   （file edit or new file add）
 
 5. git add .
+　　（Dockerフォルダ配下で）
 
 6. git commit -m "Message"  (-mでコミットのメッセージを追記)
 
