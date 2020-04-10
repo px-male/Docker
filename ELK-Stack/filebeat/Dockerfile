@@ -1,4 +1,4 @@
-FROM docker.elastic.co/logstash/logstash-oss:6.2.4
+FROM docker.elastic.co/beats/filebeat:7.6.2
 ENV LC_ALL=C
 # text editer install
 RUN yum install -y vim
@@ -24,3 +24,7 @@ RUN cd ~/.ssh && \
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
 
+COPY ./etc/filebeat.yml /usr/share/filebeat/filebeat.yml
+USER root
+RUN chown root:filebeat /usr/share/filebeat/filebeat.yml
+USER filebeat
