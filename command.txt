@@ -11,11 +11,13 @@ Docker Playground
 
 5. git add .
 
-6. git commit -m "Message"  * error occur
+6. git commit -m "Message"  (-mでコミットのメッセージを追記)
+
+　　 error occurの場合は、下記の7, 8の登録を行う
 
 7. git config user.email XXXXX@XXXXXX
 
 8. git config user.name YYYYYYY
 
-9. git push
+9. git push  （git サーバに保存）
 
