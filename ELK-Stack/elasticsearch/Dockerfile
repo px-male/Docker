@@ -21,10 +21,11 @@ RUN cd ~/.ssh && \
     ssh-keygen -t rsa -N "" -f id_rsa 
 #    ssh-copy-id root@192.168.100.20
 
-# FOREGROUND change access
-CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
-
 COPY ./config/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
 
 # kuromojiをインストール
 RUN elasticsearch-plugin  install analysis-kuromoji
+
+# FOREGROUND change access
+CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
+
