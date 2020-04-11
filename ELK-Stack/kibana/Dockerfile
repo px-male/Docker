@@ -21,6 +21,8 @@ RUN cd ~/.ssh && \
     ssh-keygen -t rsa -N "" -f id_rsa 
 #    ssh-copy-id root@192.168.100.20
 
+COPY ./config/kibana.yml /opt/kibana/config/kibana.yml
+
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
 
