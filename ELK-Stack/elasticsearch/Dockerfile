@@ -24,3 +24,7 @@ RUN cd ~/.ssh && \
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
 
+COPY ./config/elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
+
+# kuromojiをインストール
+RUN elasticsearch-plugin  install analysis-kuromoji
