@@ -71,9 +71,17 @@ services:
       - elasticsearch
     command: /sbin/init
 
-volumes:
-  es_data:
-    driver: local
+  nginx:
+    build: ./nginx
+    image: nginx
+    container_name: nginx
+    networks:
+      private_net:
+        ipv4_address:192.168.200.50
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/nginx:/var/log/nginx
 
 networks:
   private_net:
