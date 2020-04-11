@@ -1,6 +1,6 @@
 version: "3"
 services:
-  logstash:
+  filebeat:
     build: ./filebeat
     image: filebeat
     container_name: filebeat
@@ -11,11 +11,12 @@ services:
       private_net:
         ipv4_address:192.168.200.10
     ports:
-      - "9200:9200"
+      - "5601:5601"
     volumes:
-      - ./pipeline:/usr/share/logstash/pipelin
+      - ./data/filebeat:/var/log/
+    links:
+      - logstash
     depends_on: logstash
-    command: /sbin/init
     
   
   logstash:
@@ -31,11 +32,10 @@ services:
     ports:
       - "9200:9200"
     volumes:
-      - ./pipeline:/usr/share/logstash/pipeline
-      - ./log:/var/log
+      - .data/logstash/pipeline:/usr/share/logstash/pipeline
+      - .data/logstash/log:/var/log
     depends_on:
       - elasticsearch
-    command: /sbin/init
 
     
   elasticsearch:
@@ -52,8 +52,7 @@ services:
       - "9200:9200"
       - "9300:9300"
     volumes:
-      - es_data:/usr/share/elasticsearch/data
-    command: /sbin/init
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
 
 
   kibana:
@@ -69,7 +68,6 @@ services:
       - "5601:5601"
     depends_on:
       - elasticsearch
-    command: /sbin/init
 
   nginx:
     build: ./nginx
