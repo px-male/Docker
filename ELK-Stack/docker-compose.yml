@@ -81,7 +81,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./data/nginx:/var/log/nginx
+      - ./data/nginx/log:/var/log/nginx
+      - ./data/nginx/html:/usr/share/nginx/html
 
 networks:
   private_net:
