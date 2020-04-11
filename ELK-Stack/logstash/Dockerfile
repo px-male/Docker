@@ -21,6 +21,8 @@ RUN cd ~/.ssh && \
     ssh-keygen -t rsa -N "" -f id_rsa 
 #    ssh-copy-id root@192.168.100.20
 
+ADD ./config/logstash.conf /usr/share/logstash/pipeline/logstash.conf
+
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
 
