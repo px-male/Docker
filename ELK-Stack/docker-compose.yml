@@ -16,7 +16,8 @@ services:
       - ./data/filebeat:/var/log/
     links:
       - logstash
-    depends_on: logstash
+    depends_on: 
+      - logstash
     
   
   logstash:
