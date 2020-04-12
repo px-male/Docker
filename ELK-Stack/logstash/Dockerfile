@@ -1,7 +1,7 @@
 FROM docker.elastic.co/logstash/logstash-oss:6.2.4
 ENV LC_ALL=C
 # text editer install
-RUN yum install -y vim
+RUN yum -y install vim
 # ssh install
 RUN yum -y install openssh-server
 RUN yum -y install openssh-clients
