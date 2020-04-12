@@ -1,4 +1,4 @@
-FROM nginx:1.10
+FROM docker.elastic.co/logstash/logstash-oss:6.2.4
 ENV LC_ALL=C
 # text editer install
 RUN yum -y install vim
