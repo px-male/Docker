@@ -29,7 +29,7 @@ services:
 #      - test-network
       private_net:
         ipv4_address: 192.168.100.10 
-    command: /sbin/init
+    command: /sbin/init 
 
   kibana:
     build: ./kibana
@@ -44,7 +44,7 @@ services:
 #      - test-network
       private_net:
         ipv4_address: 192.168.100.20 
-    command: /sbin/init
+    command: /sbin/init 
 
 networks:
 #    test-network:
