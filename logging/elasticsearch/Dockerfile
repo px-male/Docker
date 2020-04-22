@@ -7,7 +7,12 @@ RUN yum -y install openssh-server
 RUN yum -y install openssh-clients
 # sudo install
 RUN yum -y install sudo
-RUN yum -y install ansible
+RUN yum -y install java-1.8.0-openjdk
+COPY ./etc/elasticsearch/elasticsearch.repo /etc/yum.repos.d/
+COPY ./etc/elasticsearch/logstash.repo /etc/yum.repos.d/
+RUN rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+RUN yum -y install elasticsearch 
+RUN yum -y install logstash
 
 RUN sed -i -e 's/# %wheel\tALL=(ALL)\tNOPASSWD: ALL/%wheel\tALL=(ALL)\tNOPASSWD: ALL/' /etc/sudoers
 RUN sed -i -e 's/%wheel\tALL=(ALL)\tALL/# %wheel\tALL=(ALL)\tALL/' /etc/sudoers
@@ -21,21 +26,6 @@ RUN mkdir  ~/.ssh && \
 RUN cd ~/.ssh && \
     ssh-keygen -t rsa -N "" -f id_rsa 
 #    ssh-copy-id root@192.168.100.20
-
-RUN mkdir /ansible && \
-    cd /ansible && \
-    mkdir inventory && \
-    cd inventory && \
-    echo -e "[targets]\n192.168.100.20" > hosts
-
-RUN cd /etc/ansible && \
-    echo -e "[targets]\n192.168.100.20" >> hosts && \
-    mkdir -p /etc/ansible/roles/ping && \
-    mkdir /etc/ansible/roles/ping/tasks
-
-COPY ./etc/ansible/roles/ping/tasks/main.yml /etc/ansible/roles/ping/tasks
-#COPY main.yml /etc/ansible/roles/ping/tasks
-COPY ./etc/ansible/site.yml /etc/ansible
 
     
 # FOREGROUND change access
