@@ -4,6 +4,7 @@ services:
     build: ./elasticsearch
     image: elasticsearch
     container_name: elasticsearch
+    hostname: 'elasticsearch'
     privileged: true
     ports:
       - 9200:9200
@@ -35,6 +36,7 @@ services:
     build: ./kibana
     image: kibana
     container_name: kibana
+    hostname: 'kibana'
     privileged: true
     ports:
       - 5601:5601

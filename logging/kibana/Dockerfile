@@ -5,6 +5,12 @@ RUN yum install -y vim
 # ssh install
 RUN yum -y install openssh-server
 RUN yum -y install openssh-clients
+RUN yum -y install sudo
+# kibana install
+COPY ./etc/kibana/kibana.repo /etc/yum.repos.d/
+RUN rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
+RUN yum -y install kibana
+
 # sudo install
 RUN yum -y install sudo
 
