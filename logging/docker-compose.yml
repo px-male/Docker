@@ -5,10 +5,30 @@ services:
     image: elasticsearch
     container_name: elasticsearch
     privileged: true
+    ports:
+      - 9200:9200
+    environment:
+      - discovery.type=single-node
+      - node.master=true
+      - node.data=true
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms2048m -Xmx2048m"
+    volumes:
+      - ./esdata:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
     networks:
 #      - test-network
       private_net:
-        ipv4_address: 192.168.200.10 
+        ipv4_address: 192.168.100.10 
     command: /sbin/init
 
   kibana:
@@ -16,10 +36,14 @@ services:
     image: kibana
     container_name: kibana
     privileged: true
+    ports:
+      - 5601:5601
+    environment:
+      ELASTICSEARCH_HOSTS: http://elasticsearch:9200
     networks:
 #      - test-network
       private_net:
-        ipv4_address: 192.168.200.20 
+        ipv4_address: 192.168.100.20 
     command: /sbin/init
 
 networks:
