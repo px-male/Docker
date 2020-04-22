@@ -1,0 +1,34 @@
+version: '3'
+services:
+  elasticsearch:
+    build: ./elasticsearch
+    image: elasticsearch
+    container_name: elasticsearch
+    privileged: true
+    networks:
+#      - test-network
+      private_net:
+        ipv4_address: 192.168.200.10 
+    command: /sbin/init
+
+  kibana:
+    build: ./kibana
+    image: kibana
+    container_name: kibana
+    privileged: true
+    networks:
+#      - test-network
+      private_net:
+        ipv4_address: 192.168.200.20 
+    command: /sbin/init
+
+networks:
+#    test-network:
+    private_net:
+      driver: bridge
+      ipam:
+        driver: default
+        config:
+          - subnet: 192.168.100.0/24
+
+#      external: true

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  test1:
+    build: ./test1
+    image: test1
+    container_name: test1
+    privileged: true
+    networks:
+      - test-network
+    command: /sbin/init
+
+  test2:
+    build: ./test2
+    image: test2
+    container_name: test2
+    privileged: true
+    networks:
+      - test-network
+    command: /sbin/init
+
+networks:
+    test-network:
+      external: true
