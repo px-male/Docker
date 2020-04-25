@@ -48,6 +48,22 @@ services:
         ipv4_address: 192.168.100.20 
     command: /sbin/init 
 
+  nginx:
+    build: ./nginx
+    image: nginx
+    container_name: nginx
+    hostname: 'nginx'
+    privileged: true
+    networks:
+      private_net:
+        ipv4_address: 192.168.100.30
+    ports:
+      - "80:80"
+    volumes:
+      - ./data/nginx/log:/var/log/nginx
+      - ./data/nginx/html:/usr/share/nginx/html
+    command: /sbin/init 
+    
 networks:
 #    test-network:
     private_net:
