@@ -11,13 +11,13 @@ RUN yum -y install java-1.8.0-openjdk
 RUN pwd
 COPY ./etc/nginx/nginx.repo /etc/yum.repos.d/
 COPY ./etc/filebeat/filebeat.repo /etc/yum.repos.d/
-COPY ./etc/nginx/index.html /usr/share/nginx/html/
-COPY ./etc/nginx/50x.html /usr/share/nginx/html/
-RUN chmod 755 /usr/share/nginx/html/*
 
 RUN rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 RUN yum -y install nginx
 RUN yum -y install filebeat
+COPY ./etc/nginx/index.html /usr/share/nginx/html/
+COPY ./etc/nginx/50x.html /usr/share/nginx/html/
+RUN chmod 755 /usr/share/nginx/html/*
 
 RUN sed -i -e 's/# %wheel\tALL=(ALL)\tNOPASSWD: ALL/%wheel\tALL=(ALL)\tNOPASSWD: ALL/' /etc/sudoers
 RUN sed -i -e 's/%wheel\tALL=(ALL)\tALL/# %wheel\tALL=(ALL)\tALL/' /etc/sudoers
