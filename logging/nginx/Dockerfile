@@ -8,8 +8,8 @@ RUN yum -y install openssh-clients
 # sudo install
 RUN yum -y install sudo
 RUN yum -y install java-1.8.0-openjdk
-COPY ./etc/nginx/nginx.repo /etc/yum.repos.d/
-COPY ./etc/filebeat/filebeat.repo /etc/yum.repos.d/
+COPY /Docker/logging/nginx/etc/nginx/nginx.repo /etc/yum.repos.d/
+COPY /Docker/logging/nginx/etc/filebeat/filebeat.repo /etc/yum.repos.d/
 RUN rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
 RUN yum -y install nginx
 RUN yum -y install filebeat
