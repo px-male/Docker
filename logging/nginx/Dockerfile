@@ -31,6 +31,10 @@ RUN cd ~/.ssh && \
 RUN echo -e "192.168.100.10\telasticsearch" >> /etc/hosts
 RUN echo -e "192.168.100.20\tkibana" >> /etc/hosts
 
+COPY ./etc/nginx/index.html /usr/share/nginx/html/
+COPY ./etc/nginx/50x.html /usr/share/nginx/html/
+
+
 
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
