@@ -36,6 +36,9 @@ RUN sed -i -e 's/#node.name: node-1/node.name: elasticsearch/' /etc/elasticsearc
 RUN sed -i -e 's/#cluster.initial_master_nodes: \["node-1", "node-2"\]/cluster.initial_master_nodes: ["elasticsearch"]/' /etc/elasticsearch/elasticsearch.yml
 RUN echo -e "192.168.100.20\tkibana" >> /etc/hosts
 
+#   add logstash configfile
+ADD ./elasticsearch/etc/logstash/logstash.conf /etc/logstash/conf.d/logstash.conf
+
 
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]

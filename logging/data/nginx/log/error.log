@@ -1,0 +1,1 @@
+2020/04/27 13:20:40 [error] 1796#1796: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "ip172-18-0-19-bqjdfttim9m0009rnmr0-80.direct.labs.play-with-docker.com", referrer: "http://ip172-18-0-19-bqjdfttim9m0009rnmr0-80.direct.labs.play-with-docker.com/"
