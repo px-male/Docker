@@ -34,6 +34,10 @@ RUN cd ~/.ssh && \
 
 RUN echo -e "192.168.100.10\telasticsearch" >> /etc/hosts
 RUN echo -e "192.168.100.20\tkibana" >> /etc/hosts
+RUN cp -p ./etc/filebeat/filebeat.yml ./etc/filebeat/filebeat.yml.org
+RUN cp -p ./etc/filebeat/filebeat.reference.yml ./etc/filebeat/filebeat.reference.yml.org
+ADD ./etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml
+ADD ./etc/filebeat/filebeat.reference.yml /etc/filebeat.filebeat.reference.yml
 
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
