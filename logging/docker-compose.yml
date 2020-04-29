@@ -19,6 +19,7 @@ services:
       - "ES_JAVA_OPTS=-Xms2048m -Xmx2048m"
     volumes:
       - ./esdata:/usr/share/elasticsearch/data
+      - ./logstashdata/conf.d:/etc/logstash/conf.d
     ulimits:
       memlock:
         soft: -1
