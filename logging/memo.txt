@@ -1,7 +1,12 @@
-
+■構成
 
 No  hostname      IP-Adress       pkg
 ---------------------------------------
 1   nginx         192.168.100.30  nginx
-                              filebeat
-2   elasticsearh  192.16
+                                  filebeat
+2   elasticsearh  192.168.100.10  elasticsearch
+                                  logstash
+3   kibana        192.168.100.20  kibana
+
+■起動方法
+１．各サーバにログインして、systemctl により５つのパッケージを起動する。
