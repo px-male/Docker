@@ -1,0 +1,7 @@
+
+
+No  hostname      IP-Adress       pkg
+---------------------------------------
+1   nginx         192.168.100.30  nginx
+                              filebeat
+2   elasticsearh  192.16
