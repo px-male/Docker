@@ -5,6 +5,8 @@ services:
     image: elasticsearch
     container_name: elasticsearch
     hostname: 'elasticsearch'
+    extra_hosts:
+      - "kibana:192.168.100.20"
     privileged: true
     ports:
       - 9200:9200
@@ -37,6 +39,8 @@ services:
     image: kibana
     container_name: kibana
     hostname: 'kibana'
+    extra_hosts:
+      - "elasticsearch:192.168.100.10"
     privileged: true
     ports:
       - 5601:5601
@@ -53,6 +57,8 @@ services:
     image: nginx
     container_name: nginx
     hostname: 'nginx'
+    extra_hosts:
+      - "elasticsearch:192.168.100.10"
     privileged: true
     networks:
       private_net:
