@@ -34,7 +34,6 @@ RUN sed -i -e 's/#discovery.seed_hosts: \["host1", "host2"\]/discovery.seed_host
 RUN sed -i -e 's/#cluster.name: my-application/cluster.name: elastic-cluster/' /etc/elasticsearch/elasticsearch.yml
 RUN sed -i -e 's/#node.name: node-1/node.name: elasticsearch/' /etc/elasticsearch/elasticsearch.yml
 RUN sed -i -e 's/#cluster.initial_master_nodes: \["node-1", "node-2"\]/cluster.initial_master_nodes: ["elasticsearch"]/' /etc/elasticsearch/elasticsearch.yml
-RUN echo -e "192.168.100.20\tkibana" | sudo tee -a /etc/hosts
 
 #   add logstash configfile
 ADD ./etc/logstash/logstash.conf /etc/logstash/conf.d/logstash.conf
