@@ -32,8 +32,6 @@ RUN cd ~/.ssh && \
     ssh-keygen -t rsa -N "" -f id_rsa 
 #    ssh-copy-id root@192.168.100.20
 
-RUN echo -e "192.168.100.10\telasticsearch" | sudo tee -a /etc/hosts
-RUN echo -e "192.168.100.20\tkibana" | sudo tee -a /etc/hosts
 RUN cp -p ./etc/filebeat/filebeat.yml ./etc/filebeat/filebeat.yml.org
 RUN cp -p ./etc/filebeat/filebeat.reference.yml ./etc/filebeat/filebeat.reference.yml.org
 ADD ./etc/filebeat/filebeat.yml /etc/filebeat/filebeat.yml
