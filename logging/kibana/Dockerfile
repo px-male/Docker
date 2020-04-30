@@ -26,7 +26,6 @@ RUN mkdir  ~/.ssh && \
 RUN sed -i -e 's/#server.host: "localhost"/server.host: "0.0.0.0"/' /etc/kibana/kibana.yml
 RUN sed -i -e 's/#server.name: "your-hostname"/server.name: "kibana"/' /etc/kibana/kibana.yml
 RUN sed -i -e 's/#elasticsearch\.hosts: \["http:\/\/localhost:9200"\]/elasticsearch.hosts: ["http:\/\/elasticsearch:9200"]/' /etc/kibana/kibana.yml
-RUN echo -e "192.168.100.10\telasticsearch" | sudo tee -a /etc/hosts
 
 # FOREGROUND change access
 CMD ["/usr/bin/ssh","-D", "FOREGROUND"]
