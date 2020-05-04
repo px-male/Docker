@@ -17,6 +17,8 @@ services:
     build: ./kibana_d
     container_name: kibana_c_el
     image: kibana_i_el:1.0.4
+    external_links:
+      - elasticsearch
     ports:
       - 5601:5601
 
@@ -26,6 +28,8 @@ services:
     build: ./logstash_d
     container_name: logstash_c_el
     image: logstash_i_el:1.0.21
+    external_links:
+      - elasticsearch
     ports:
       - 5044:5044
 
