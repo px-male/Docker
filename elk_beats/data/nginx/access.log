@@ -1,2 +1,7 @@
 172.18.0.1 - - [04/May/2020:06:49:36 +0000] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
 172.18.0.1 - - [04/May/2020:06:49:37 +0000] "GET /favicon.ico HTTP/1.1" 404 571 "http://ip172-18-0-53-bqnrj5aosm4g00c6o5r0-80.direct.labs.play-with-docker.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.18.0.1 - - [05/May/2020:14:21:24 +0000] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.18.0.1 - - [05/May/2020:14:21:24 +0000] "GET /favicon.ico HTTP/1.1" 404 571 "http://ip172-18-0-10-bqon6bqosm4g00871ekg-80.direct.labs.play-with-docker.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.18.0.1 - - [05/May/2020:14:28:27 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.18.0.1 - - [05/May/2020:14:28:28 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"
+172.18.0.1 - - [05/May/2020:14:28:28 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.129 Safari/537.36" "-"

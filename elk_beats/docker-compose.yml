@@ -1,7 +1,7 @@
 version: '2'
 services:
   elasticsearch:
-    mem_limit: 1024m
+#    mem_limit: 1024m
     build: ./es_d
     container_name: es_c_el
     image: es_i_el:1.0.5
@@ -9,11 +9,11 @@ services:
       - ./data/es:/usr/share/elasticsearch/data
     ports:
       - 9200:9200
-    environment:
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
+#    environment:
+#      - ES_JAVA_OPTS=-Xms512m -Xmx512m
 
   kibana:
-    mem_limit: 512m
+#    mem_limit: 512m
     build: ./kibana_d
     container_name: kibana_c_el
     image: kibana_i_el:1.0.4
@@ -24,7 +24,7 @@ services:
 
 
   logstash:
-    mem_limit: 512m
+#    mem_limit: 512m
     build: ./logstash_d
     container_name: logstash_c_el
     image: logstash_i_el:1.0.21
@@ -34,15 +34,17 @@ services:
       - 5044:5044
 
   beats:
-    mem_limit: 512m
+#    mem_limit: 512m
     build: ./beats_d
     container_name: beats_c_el
     image: beats_i_el:1.0.1
+    external_links:
+      - logstash
     volumes:
       - ./data/nginx:/var/log/nginx/
 
   web:
-    mem_limit: 512m
+#    mem_limit: 512m
     image: nginx:1.10
     ports:
       - "80:80"
