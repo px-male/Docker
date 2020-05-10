@@ -1,5 +1,6 @@
 ■使用方法
 
+＊ 以下を行わないと、logstasy が起動できない
 1.dataディレクトリ権限変更
 $ chown -R 1000:1000 data/
 
@@ -7,3 +8,9 @@ $ chown -R 1000:1000 data/
 $ docker-compose up -d --build
 
 3.logstash のconfigファイルを変更したりとかして試す。
+
+■その他補足事項
+
+1.インストールはapt-get。ただし、最初にapt-get updateを行わないと、インストールできない。
+
+２.apt-get install sysstatで、sarが実行できるようにする。（その後、/etc/default/sysstatのENABLDE=tureに変更する必要がある）　
