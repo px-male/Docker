@@ -50,6 +50,7 @@ services:
       - "80:80"
     volumes:
       - ./data/nginx:/var/log/nginx
+# systemctlが使えるようにするために必要な２行
     privileged: ture
     command: /sbin/init
 
