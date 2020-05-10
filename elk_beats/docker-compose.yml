@@ -50,4 +50,6 @@ services:
       - "80:80"
     volumes:
       - ./data/nginx:/var/log/nginx
+    privileged: ture
+    command: /sbin/init
 
