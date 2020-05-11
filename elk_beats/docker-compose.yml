@@ -45,6 +45,8 @@ services:
 
   web:
 #    mem_limit: 512m
+    build: ./nginx_d
+    container_name: nginx
     image: nginx:1.10
     ports:
       - "80:80"
