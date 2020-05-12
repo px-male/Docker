@@ -52,6 +52,7 @@ services:
       - "80:80"
     volumes:
       - ./data/nginx:/var/log/nginx
+      - ./data/nginx:/var/log/sysstat
 # systemctlが使えるようにするために必要な２行
     privileged: true
     command: /sbin/init
