@@ -42,17 +42,17 @@ services:
       - logstash
     volumes:
       - ./data/nginx:/var/log/nginx/
-# systemctlが使えるようにするために必要な２行
-    privileged: true
-    command: /sbin/init
 
   web:
 #    mem_limit: 512m
+    build: ./nginx_d
     container_name: nginx
     image: nginx:1.10
     ports:
       - "80:80"
     volumes:
       - ./data/nginx:/var/log/nginx
-
+# systemctlが使えるようにするために必要な２行
+    privileged: true
+    command: /sbin/init
 
