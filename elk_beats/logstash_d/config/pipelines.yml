@@ -1,0 +1,8 @@
+- pipeline.id: logstash
+  pipeline.batch.size: 125
+  path.config: "/etc/logstash/conf.d/logstash.cfg"
+  pipeline.workers: 1
+- pipeline.id: sar
+  pipeline.batch.size: 125
+  path.config: "/etc/logstash/conf.d/sar.cfg"
+  pipeline.workers: 1
