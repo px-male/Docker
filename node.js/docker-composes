@@ -1,0 +1,10 @@
+version: '3'
+service:
+  app:
+    build: .
+    image: node_image
+    volumes:
+      - ./app:/app
+    ports:
+      - "8100:8100"
+    tty: true
