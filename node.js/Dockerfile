@@ -4,5 +4,7 @@ RUN npm init --y
 RUN npm install -g express ejs
 RUN npm install -g ionic cordova
 RUN npm install nodemon
+RUN mkdir views
 COPY ./config/package.json /app/package.json
+COPY ./config/hello.ejs /app/views
 CMD ["npm run start"]
