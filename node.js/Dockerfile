@@ -1,7 +1,6 @@
 FROM node:14.4-alpine
 WORKDIR /app
-RUN cd /app
-RUN npm init --yes
+RUN npm init -f
 RUN npm install -g express ejs
 RUN npm install -g ionic cordova
 RUN npm install nodemon
