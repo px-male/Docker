@@ -7,4 +7,4 @@ RUN mkdir -p /app/views
 COPY ./config/app.js /app
 COPY ./config/package.json /app
 COPY ./config/hello.ejs /app/views
-CMD ["sh"]
+CMD ["npm", "run", "start"]
