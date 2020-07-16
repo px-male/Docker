@@ -1,5 +1,5 @@
----- drop ----
-DROP TABLE IF EXISTS `test_table`;
+CREATE DATABASE test_databese;
+use test_database;
 
 ---- create ----
 create table IF not exists `test_table`
