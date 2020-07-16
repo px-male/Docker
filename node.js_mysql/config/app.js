@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const app = express();
 
 const connection = mysql.createConnection({
-  host: 'mys',
+  host: 'mysql_host',
   user: 'docker',
   password: 'docker',
   database: 'test_database'
@@ -21,7 +21,7 @@ connection.connect((err) => {
 
 app.get('/', (req, res) => {
   connection.query(
-    'SELECT * FROM users',
+    'SELECT * FROM test_talbe',
     (error, results) => {
       console.log(results);
       res.render('hello.ejs');
