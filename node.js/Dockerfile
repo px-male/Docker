@@ -6,4 +6,5 @@ RUN npm install nodemon
 RUN mkdir -p /app/views
 COPY ./config/app.js /app
 COPY ./config/hello.ejs /app/views
+#COPY ./config/package.json /app
 CMD ["npm", "run", "start"]
