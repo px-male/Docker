@@ -8,6 +8,6 @@ COPY ./config/app.js /app
 COPY ./config/hello.ejs /app/views
 #COPY ./config/package.json /app
 COPY ./config/sampleapp.js /app
-COPY ./config/hello.html /app/view
+COPY ./config/hello.html /app/views
 
 #CMD ["npm", "run", "start"]
